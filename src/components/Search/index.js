@@ -4,8 +4,7 @@ const Search = () => {
   return (
     <>
       <div class="input-group">
-        <span class="input-group-text">With textarea</span>
-        <textarea class="form-control" aria-label="With textarea"></textarea>
+        <textarea class="form-control"></textarea>
       </div>
     </>
   );
