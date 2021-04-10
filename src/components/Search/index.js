@@ -1,10 +1,13 @@
 import React from 'react';
 
-const Search = () => {
+const Search = (props) => {
   return (
     <>
-      <div class="input-group">
-        <textarea class="form-control col-2"></textarea>
+      <div className="input-group">
+        <input className="form-control col-2"
+        onChange={event => props.handleSearch(event)}
+        type='search'
+        />
       </div>
     </>
   );
