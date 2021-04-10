@@ -4,7 +4,7 @@ const Search = () => {
   return (
     <>
       <div class="input-group">
-        <textarea class="form-control"></textarea>
+        <textarea class="form-control col-2"></textarea>
       </div>
     </>
   );

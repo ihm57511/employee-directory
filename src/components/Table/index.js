@@ -1,8 +1,9 @@
 import React from 'react';
+import employees from '../../employees.json';
 
 const Table = () => {
   return(
-    <table class="table">
+    <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Image</th>
@@ -13,12 +14,15 @@ const Table = () => {
     </tr>
   </thead>
   <tbody>
+    {employees.map(employee => (
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td>{<img height="60" src={employee.image} alt={employee.name} />}</td>
+      <td>{employee.name}</td>
+      <td>{employee.phone}</td>
+      <td>{employee.email}</td>
+      <td>{employee.dob}</td>
     </tr>
+    ))}
   </tbody>
 </table>
   )
