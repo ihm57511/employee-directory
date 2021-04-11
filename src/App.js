@@ -1,6 +1,5 @@
 
 import './App.css';
-import Search from './components/Search';
 import Header from './components/Header';
 import Table from './components/Table';
 

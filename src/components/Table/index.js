@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import API from '../../utils/API';
 import Search from '../Search/index';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
 
 class Table extends Component {
   constructor(props) {
@@ -89,18 +91,26 @@ class Table extends Component {
               <th scope="col" style={{cursor: "pointer"}}
               onClick={() => this.sortTableByName('last')}>
                 Name
+              <FontAwesomeIcon style={{color: "tomato", fontSize: "1em"}} icon={faSortUp} />
+              <FontAwesomeIcon style={{color: "tomato", fontSize: "1em"}} icon={faSortDown} />
               </th>
               <th scope="col" style={{cursor: "pointer"}}
               onClick={() => this.sortTable('phone')}>
                 Phone
+              <FontAwesomeIcon style={{color: "tomato", fontSize: "1em"}} icon={faSortUp} />
+              <FontAwesomeIcon style={{color: "tomato", fontSize: "1em"}} icon={faSortDown} />
               </th>
               <th scope="col" style={{cursor: "pointer"}}
               onClick={() => this.sortTable('email')}>
                 Email
+              <FontAwesomeIcon style={{color: "tomato", fontSize: "1em"}} icon={faSortUp} />
+              <FontAwesomeIcon style={{color: "tomato", fontSize: "1em"}} icon={faSortDown} />
               </th>
               <th scope="col" style={{cursor: "pointer"}}
               onClick={() => this.sortTableByDOB('age')}>
                 DOB
+              <FontAwesomeIcon style={{color: "tomato", fontSize: "1em"}} icon={faSortUp} />
+              <FontAwesomeIcon style={{color: "tomato", fontSize: "1em"}} icon={faSortDown} />
               </th>
             </tr>
           </thead>
@@ -122,3 +132,4 @@ class Table extends Component {
 }
 
 export default Table;
+

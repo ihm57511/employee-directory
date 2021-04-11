@@ -6,6 +6,10 @@ header {
 }
 
 .input-group {
-  border-top: 8px;
-  border-color:  #E3353A;
+  border-top: 4px solid #E3353A;
+  background-color: #F7FAFB;
+}
+
+.table {
+  margin: 32px 64px;
 }
