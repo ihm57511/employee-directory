@@ -86,16 +86,20 @@ class Table extends Component {
               <th scope="col">
                 Image
               </th>
-              <th scope="col" onClick={() => this.sortTableByName('last')}>
+              <th scope="col" style={{cursor: "pointer"}}
+              onClick={() => this.sortTableByName('last')}>
                 Name
               </th>
-              <th scope="col" onClick={() => this.sortTable('phone')}>
+              <th scope="col" style={{cursor: "pointer"}}
+              onClick={() => this.sortTable('phone')}>
                 Phone
               </th>
-              <th scope="col" onClick={() => this.sortTable('email')}>
+              <th scope="col" style={{cursor: "pointer"}}
+              onClick={() => this.sortTable('email')}>
                 Email
               </th>
-              <th scope="col" onClick={() => this.sortTableByDOB('age')}>
+              <th scope="col" style={{cursor: "pointer"}}
+              onClick={() => this.sortTableByDOB('age')}>
                 DOB
               </th>
             </tr>
