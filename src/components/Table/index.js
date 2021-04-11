@@ -3,11 +3,16 @@ import API from '../../utils/API';
 import Search from '../Search/index';
 
 class Table extends Component {
-  state = {
-    employees: [],
-    searchedEmployees: []
+  constructor(props) {
+    super(props);
+    this.state = {
+      employees: [],
+      searchedEmployees: [],
+      direction: 1
+    };
+    this.sortTable = this.sortTable.bind(this);
   };
-  
+
   componentDidMount() {
     this.searchEmployee();
   };
@@ -16,44 +21,82 @@ class Table extends Component {
     API.search()
       .then(res => this.setState({ employees: res.data.results, searchedEmployees: res.data.results }))
       .catch(err => console.log(err))
-  }
+  };
 
   handleSearch = event => {
     const value = event.target.value;
     const filterEmployees = this.state.employees.filter(employee => {
-      let objValues = Object.values(employee).join('').toLowerCase();
+      let objValues = Object.values(employee.name).join('').toLowerCase();
       return objValues.indexOf(value.toLowerCase()) !== -1;
     });
     this.setState({
       searchedEmployees: filterEmployees
     });
     console.log(filterEmployees)
-    console.log(this.state.searchedEmployees)
-    console.log(this.state.employees)
-  }
+  };
+
+  sortTableByName = (key, dir) => {
+    let emp = [...this.state.searchedEmployees];
+    if (this.state.direction === 1) {
+      emp.sort((a, b) => a.name[key] < b.name[key] ? -1 : 1);
+    } else {
+      emp.sort((a, b) => a.name[key] > b.name[key] ? -1 : 1);
+    }
+    console.log(emp)
+    this.setState({
+      searchedEmployees: emp,
+      direction: this.state.direction === 1 ? -1 : 1
+    });
+  };
+
+  sortTable = (key, dir) => {
+    let emp = [...this.state.searchedEmployees];
+    if (this.state.direction === 1) {
+      emp.sort((a, b) => a[key] < b[key] ? -1 : 1);
+    } else {
+      emp.sort((a, b) => a[key] > b[key] ? -1 : 1);
+    }
+    this.setState({
+      searchedEmployees: emp,
+      direction: this.state.direction === 1 ? -1 : 1
+    });
+  };
+
+  sortTableByDOB = (key, dir) => {
+    let emp = [...this.state.searchedEmployees];
+    if (this.state.direction === 1) {
+      emp.sort((a, b) => a.dob[key] < b.dob[key] ? -1 : 1);
+    } else {
+      emp.sort((a, b) => a.dob[key] > b.dob[key] ? -1 : 1);
+    }
+    this.setState({
+      searchedEmployees: emp,
+      direction: this.state.direction === 1 ? -1 : 1
+    });
+  };
 
   render() {
     return (
       <>
         <Search
-        handleSearch={this.handleSearch}/>
+          handleSearch={this.handleSearch} />
         <table className="table table-striped">
           <thead>
             <tr>
               <th scope="col">
-                <button type="button">Image</button>
+                Image
               </th>
-              <th scope="col">
-                <button type="button">Name</button>
+              <th scope="col" onClick={() => this.sortTableByName('last')}>
+                Name
               </th>
-              <th scope="col">
-                <button type="button">Phone</button>
+              <th scope="col" onClick={() => this.sortTable('phone')}>
+                Phone
               </th>
-              <th scope="col">
-              <button type="button">Email</button>
+              <th scope="col" onClick={() => this.sortTable('email')}>
+                Email
               </th>
-              <th scope="col">
-              <button type="button">DOB</button>
+              <th scope="col" onClick={() => this.sortTableByDOB('age')}>
+                DOB
               </th>
             </tr>
           </thead>
