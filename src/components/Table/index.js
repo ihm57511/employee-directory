@@ -64,7 +64,7 @@ class Table extends Component {
                 <td>{employee.name.first} {employee.name.last}</td>
                 <td>{employee.phone}</td>
                 <td>{employee.email}</td>
-                <td>{employee.dob.date}</td>
+                <td>{employee.dob.date.substring(0, 10)}</td>
               </tr>
             ))}
           </tbody>
