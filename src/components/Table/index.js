@@ -40,11 +40,21 @@ class Table extends Component {
         <table className="table table-striped">
           <thead>
             <tr>
-              <th scope="col">Image</th>
-              <th scope="col">Name</th>
-              <th scope="col">Phone</th>
-              <th scope="col">Email</th>
-              <th scope="col">DOB</th>
+              <th scope="col">
+                <button type="button">Image</button>
+              </th>
+              <th scope="col">
+                <button type="button">Name</button>
+              </th>
+              <th scope="col">
+                <button type="button">Phone</button>
+              </th>
+              <th scope="col">
+              <button type="button">Email</button>
+              </th>
+              <th scope="col">
+              <button type="button">DOB</button>
+              </th>
             </tr>
           </thead>
           <tbody>
