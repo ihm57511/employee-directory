@@ -77,6 +77,13 @@ class Table extends Component {
     });
   };
 
+  carrots = () => {
+    if (this.state.direction === 1) {
+      return <FontAwesomeIcon style={{color: "tomato", fontSize: "1em"}} icon={faSortUp} />;
+    } 
+    return <FontAwesomeIcon style={{color: "tomato", fontSize: "1em"}} icon={faSortDown} />
+  }
+
   render() {
     return (
       <>
@@ -91,26 +98,19 @@ class Table extends Component {
               <th scope="col" style={{cursor: "pointer"}}
               onClick={() => this.sortTableByName('last')}>
                 Name
-              <FontAwesomeIcon style={{color: "tomato", fontSize: "1em"}} icon={faSortUp} />
-              <FontAwesomeIcon style={{color: "tomato", fontSize: "1em"}} icon={faSortDown} />
+                {this.carrots()}
               </th>
               <th scope="col" style={{cursor: "pointer"}}
               onClick={() => this.sortTable('phone')}>
                 Phone
-              <FontAwesomeIcon style={{color: "tomato", fontSize: "1em"}} icon={faSortUp} />
-              <FontAwesomeIcon style={{color: "tomato", fontSize: "1em"}} icon={faSortDown} />
               </th>
               <th scope="col" style={{cursor: "pointer"}}
               onClick={() => this.sortTable('email')}>
                 Email
-              <FontAwesomeIcon style={{color: "tomato", fontSize: "1em"}} icon={faSortUp} />
-              <FontAwesomeIcon style={{color: "tomato", fontSize: "1em"}} icon={faSortDown} />
               </th>
               <th scope="col" style={{cursor: "pointer"}}
               onClick={() => this.sortTableByDOB('age')}>
                 DOB
-              <FontAwesomeIcon style={{color: "tomato", fontSize: "1em"}} icon={faSortUp} />
-              <FontAwesomeIcon style={{color: "tomato", fontSize: "1em"}} icon={faSortDown} />
               </th>
             </tr>
           </thead>
