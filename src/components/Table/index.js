@@ -10,7 +10,7 @@ class Table extends Component {
     this.state = {
       employees: [],
       searchedEmployees: [],
-      direction: 1
+      direction: 0
     };
     this.sortTable = this.sortTable.bind(this);
   };
@@ -44,7 +44,6 @@ class Table extends Component {
     } else {
       emp.sort((a, b) => a.name[key] > b.name[key] ? -1 : 1);
     }
-    console.log(emp)
     this.setState({
       searchedEmployees: emp,
       direction: this.state.direction === 1 ? -1 : 1
@@ -78,6 +77,9 @@ class Table extends Component {
   };
 
   carrots = () => {
+    if (this.state.direction === 0) {
+      return
+    }
     if (this.state.direction === 1) {
       return <FontAwesomeIcon style={{color: "tomato", fontSize: "1em"}} icon={faSortUp} />;
     } 
